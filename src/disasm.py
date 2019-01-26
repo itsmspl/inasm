@@ -14,4 +14,7 @@ class __ndisasm__:
                 code[i*2:(i+1)*2], 16)])
         open(f, 'wb').write(b)
         call(['ndisasm', f])
-        remove(f)
+        try:
+            remove(f)
+        except:
+            pass
