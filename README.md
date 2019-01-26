@@ -1,2 +1,1 @@
-# inasm
-Interactive shell of NASM.
+# Interactive shell of NASM.
