@@ -1,15 +1,19 @@
 from help import __help__
+from asm import __nasm__
+from disasm import __ndisasm__
 
 if __name__ == '__main__':
 
     mode = 'asm'
+    asm = __nasm__()
+    disasm = __ndisasm__()
 
     while 1:
         
         try:
-            i = input('%s> ' % mode).strip()
+            i = input('\n%s> ' % mode).strip()
         except:
-            exit()
+            exit('^C')
 
         if i == '.help':
             print(__help__)
@@ -18,15 +22,17 @@ if __name__ == '__main__':
             nm = i[5:].strip()
             if nm == '':
                 mode = 'disasm' if mode == 'asm' else 'asm'
-            elif nm == 'asm':
+            elif nm == 'a':
                 mode = 'asm'
-            elif nm == 'disasm':
+            elif nm == 'd':
                 mode = 'disasm'
             else:
-                print('error: unknown mode\n')
+                print('error: unknown mode')
         
         else:
+
             if mode == 'asm':
-                pass
+                asm(i)
+
             elif mode == 'disasm':
-                pass
+                disasm(i)
